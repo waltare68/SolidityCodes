@@ -1,0 +1,21 @@
+pragma solidity 0.5.1;
+
+contract MyContract{
+    Person[] public people;
+    
+    //mapping our calldata
+    mapping(uint=>Person)public people;
+    
+    //counter for addPerson
+    uint256 public peopleCount=0;
+    
+    
+    struct Person{
+        string fname;
+        string lname;
+    }
+    function addPerson(string memory fname,string memory lname)public{
+        people.push(Person(fname,lname));
+        peopleCount+=1;
+    }
+}
